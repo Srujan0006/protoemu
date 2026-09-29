@@ -1,12 +1,14 @@
-# Protoemu
+<!---
+This file is used to generate your project datasheet. Please fill in the sections below:
+-->
 
 ## How it works
 
-Explain how your project works here. This is the protoemu baseline design.
+This is a prototype emulation baseline design. It takes inputs, processes logic, and drives the outputs.
 
 ## How to test
 
-Provide instructions on how to test the design. Run the cocotb testbench using make.
+Run the cocotb testbench locally inside the test directory using make.
 
 ## External hardware
 
