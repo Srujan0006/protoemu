@@ -13,3 +13,8 @@ test/results.xml
 test/gate_level_netlist.v
 test/.venv/
 *:Zone.Identifier
+# keep design notes and other markdown out of the repo (template docs only)
+*.md
+!README.md
+!docs/info.md
+!test/README.md
