@@ -1,55 +1,62 @@
 # Tiny Tapeout project information
 project:
-  title:        "Protoemu Project"      # Project title
+  title:        "DTC protocol emulator"      # Project title
   author:       "Srujan"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Prototype Emulation Design"      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
+  description:  "Reprogrammable PIO-style pin engine (2 state machines) with timestamp capture and autonomous trigger"      # One line description of what your project does
+  language:     "SystemVerilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     48000000       # Clock frequency in Hz (or 0 if not applicable)
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "6x4"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  # How many tiles your design occupies? On ihp-sg13cmos5l a 1x1 tile is 202 x 155 um; 6x4 is 1289 x 711 um.
+  tiles: "6x4"          # Valid values for ihp-sg13cmos5l: 1x1 .. 8x4 (tt-support-tools tech/ihp-sg13cmos5l/tile_sizes.yaml)
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_srujan0006_dtc"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
-    - "project.v"
+    - "dtc_sm.sv"
+    - "dtc_core_top.sv"
+    - "dtc_capture.sv"
+    - "dtc_trigger.sv"
+    - "dtc_top.sv"
+    - "dtc_spi.sv"
+    - "tt_um_srujan0006_dtc.sv"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "input 0"
-  ui[1]: "input 1"
-  ui[2]: "input 2"
-  ui[3]: "input 3"
-  ui[4]: "input 4"
-  ui[5]: "input 5"
-  ui[6]: "input 6"
-  ui[7]: "input 7"
+  ui[0]: "CS_N (config port)"
+  ui[1]: "SCK (config port, <= clk/8)"
+  ui[2]: "MOSI (config port)"
+  ui[3]: ""
+  ui[4]: ""
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: ""
 
   # Outputs
-  uo[0]: "output 0"
-  uo[1]: "output 1"
-  uo[2]: "output 2"
-  uo[3]: "output 3"
-  uo[4]: "output 4"
-  uo[5]: "output 5"
-  uo[6]: "output 6"
-  uo[7]: "output 7"
+  uo[0]: "MISO (config port)"
+  uo[1]: "IRQ (interrupt to host)"
+  uo[2]: "TRIG_OUT"
+  uo[3]: ""
+  uo[4]: ""
+  uo[5]: ""
+  uo[6]: ""
+  uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: "bidir 0"
-  uio[1]: "bidir 1"
-  uio[2]: "bidir 2"
-  uio[3]: "bidir 3"
-  uio[4]: "bidir 4"
-  uio[5]: "bidir 5"
-  uio[6]: "bidir 6"
-  uio[7]: "bidir 7"
+  uio[0]: "GPIO 0 (protocol pin)"
+  uio[1]: "GPIO 1 (protocol pin)"
+  uio[2]: "GPIO 2 (protocol pin)"
+  uio[3]: "GPIO 3 (protocol pin)"
+  uio[4]: "GPIO 4 (protocol pin)"
+  uio[5]: "GPIO 5 (protocol pin)"
+  uio[6]: "GPIO 6 (protocol pin)"
+  uio[7]: "GPIO 7 (protocol pin)"
+
 # Do not change!
 yaml_version: 6
