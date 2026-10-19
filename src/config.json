@@ -19,6 +19,9 @@
   "//": "The value is in nanoseconds, so 20ns == 50MHz.",
   "CLOCK_PERIOD": 20.833,
 
+  "//": "SYNTH_STRATEGY - ABC script. DELAY 0 optimizes for timing (default AREA 0); first harden missed the slow corner by 2.5 ns.",
+  "SYNTH_STRATEGY": "DELAY 0",
+
   "//": "Hold slack margin - Increase them in case you are getting hold violations.",
   "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
   "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,
