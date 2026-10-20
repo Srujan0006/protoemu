@@ -70,7 +70,7 @@ class SpiHost:
 
 
 async def start(dut):
-    cocotb.start_soon(Clock(dut.clk, 20834, unit="ps").start())     # 48 MHz
+    cocotb.start_soon(Clock(dut.clk, 23810, unit="ps").start())     # 42 MHz
     dut.ena.value = 1
     dut.ui_in.value = 1                                              # CS_N high
     dut.uio_in.value = 0

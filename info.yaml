@@ -5,7 +5,7 @@ project:
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Reprogrammable PIO-style pin engine (2 state machines) with timestamp capture and autonomous trigger"      # One line description of what your project does
   language:     "SystemVerilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     48000000       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     42000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? On ihp-sg13cmos5l a 1x1 tile is 202 x 155 um; 6x4 is 1289 x 711 um.
   tiles: "6x4"          # Valid values for ihp-sg13cmos5l: 1x1 .. 8x4 (tt-support-tools tech/ihp-sg13cmos5l/tile_sizes.yaml)

@@ -14,7 +14,7 @@ A host MCU programs everything through a serial config port (SPI target, mode 0)
 
 ## How to test
 
-The host talks to the config port: CS_N, SCK and MOSI on `ui[0..2]`, MISO on `uo[0]`. Keep SCK at or below clk/8 (6 MHz at the 48 MHz design clock).
+The host talks to the config port: CS_N, SCK and MOSI on `ui[0..2]`, MISO on `uo[0]`. Keep SCK at or below clk/8 (5.25 MHz at the 42 MHz design clock).
 
 - **Header:** 16 bits, MSB first: RW[15] (1 = read), AINC[14] (auto-increment address), reserved[13:8], addr[7:0].
 - **Write:** after the header, send 32-bit words.
